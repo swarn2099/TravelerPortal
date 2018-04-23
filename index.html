@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>marco/polo | Traveler Portal</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href=" css/materialize.min.css">
+  <link rel="stylesheet" href=" css/bulma.css">
+  <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCvM4gKXyUW58BrDOnqU3bJBGnCNiexCzI",
+      authDomain: "marco-polo-c90db.firebaseapp.com",
+      databaseURL: "https://marco-polo-c90db.firebaseio.com",
+      projectId: "marco-polo-c90db",
+      storageBucket: "marco-polo-c90db.appspot.com",
+      messagingSenderId: "399167559169"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <!-- Compiled and minified JavaScript -->
+  <script type="text/javascript" src=" js/jquery-3.3.1.min.js"></script>
+  <script src=" js/materialize.js"></script>
+  <script src=" js/init.js"></script>
+  <script src=" js/locationpicker.js"></script>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href=" img/1024.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    #rcorners2 {
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px #888888;
+    }
+
+    #preview {
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px #888888;
+    }
+
+    #previewCard {
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px #888888;
+      height: 150px;
+      padding-top: 55px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      color: white;
+    }
+
+    .top-left2 {
+      position: absolute;
+      top: 25px;
+      left: 16px;
+      color: white;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 10px;
+      left: 16px;
+      color: white;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 10px;
+      right: 16px;
+      color: white;
+    }
+  </style>
+</head>
+<nav>
+  <div class="nav-wrapper white ">
+    <a href="#" class="brand-logo center black-text"><span class="teal-text lighten-3">marco</span>/<span class="blue-text">polo</span><span class="thin"> Traveler Portal</span></a>
+  </div>
+</nav <body class="container">
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m4"><br>
+      <div class="card white" id="rcorners2">
+        <div class="card-content black-text">
+          <span class="card-title"><b>Step 1</b></span>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="eventname" type="text">
+              <label for="eventname" class="theme"> Event Name </label>
+            </div>
+            <div class="input-field col s6">
+              <select id="category">
+          <option value="free">Free</option>
+          <option value="food">Food</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="parties">Parties</option>
+          <option value="music">Music</option>
+          <option value="sports">Sports</option>
+          <option value="deal">Deal of the Day</option>
+        </select>
+              <label>Choose a Category</label>
+            </div>
+            <div class="input-field col s6">
+              <select id="featured">
+          <option value="no" class="selected">No</option>
+          <option value="yes">Yes</option>
+        </select>
+              <label>Featured?</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="description" type="text"></input>
+              <label for="description">Description</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4"><br>
+      <div class="card white" id="rcorners2">
+        <div class="card-content black-text">
+          <span class="card-title"><b>Step 2</b></span>
+          <div class="row">
+            <div class="col s12">
+              <div class="input-field col s12">
+                <label for="datepicker">Select Date</label>
+                <input type="text" class="datepicker" id="date">
+              </div>
+            </div>
+            <div class="col s6">
+              <div class="input-field col s12">
+                <label for="starttime">Select Start Time</label>
+                <input type="text" class="timepicker" id="starttime">
+              </div>
+            </div>
+            <div class="col s6">
+              <div class="input-field col s12">
+                <label for="endtime">Select End Time</label>
+                <input type="text" class="timepicker" id="endtime">
+              </div>
+            </div>
+            <div class="input-field col s12">
+              <input id="tag" type="text">
+              <label for="tag" class="theme">Tag Line</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4"><br>
+      <div class="card white" id="rcorners2">
+        <div class="card-content black-text">
+          <span class="card-title"><b>Step 3</b></span>
+          <div class="row">
+            <input type="text" id="us2-address" class="center-align " />
+            <div class="container">
+              <div id="us2" style="" class="center-align"></div>
+            </div>
+            <div class="input-field col s12">
+              <input id="imageLink" type="text">
+              <label for="imageLink" class="theme">Image Link</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="info" type="text">
+              <label for="info" class="theme">Additional Link</label><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card teal" id="rcorners2">
+        <div class="card-content white-text center-align">
+          <a class="waves-effect waves-light btn" onclick="getPreview()">Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4 center-align">
+      <div id="preview">
+        <div id="previewCard"><span class="grey-text center-align">Preview Goes Here</span></div>
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div class="card blue" id="rcorners2">
+        <div class="card-content white-text center-align">
+          <a class="waves-effect waves-light blue btn" id="submit" onclick="getForm()" href="#">Add Event</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf69RlrrN0ChatQlN28uGPRFyUP1MrV88&libraries=places"></script>
+  <script src=' js/autocomplete.js'></script>
+  <script src=" js/locationpicker.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.datepicker').datepicker();
+    });
+  </script>
+
+</body>
+
+</html>
