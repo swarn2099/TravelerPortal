@@ -10,7 +10,7 @@ function queryResults() {
       db.collection("potentialEventsTraveler").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           console.log(doc.id, " => ", doc.data());
-          var option = '<div class="buddy" style="display: block;"><div class="col s12 m7 push-m5"><div class="card"><div class="card-image"><img class="reduceheight" src="' + doc.data().imageURL + '"><span class="card-title">' + doc.data().name + '</span></div><div class="card-content black-text"><div class="row"><div class="col s12"><h5 class="left-align"><b>Location</b></h5></div></div><div class="row"><div class="left-align" id="locationPreview">' + doc.data().location + '</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Time & Date</b></h5></div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().date + '</div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().startTime + ' to ' +doc.data().endTime+'</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Description</b></h5></div></div><div class="row"><div class="col s12 left-align">'+doc.data().description+'</div></div></div></div></div></div>';
+          var option = '<div class="buddy" style="display: block;"><div class="col s12 m6 push-m2"><div class="card"><div class="card-image"><img class="reduceheight" src="' + doc.data().imageURL + '"><span class="card-title">' + doc.data().name + '</span></div><div class="card-content black-text"><div class="row"><div class="col s6"><h5 class="left-align"><b>Location</b></h5></div><div class="col s6"><form action="#"><p><label><input id="featuredBox" type="checkbox" /><span>Featured</span></label></p></form></div></div><div class="row"><div class="left-align" id="locationPreview">' + doc.data().location + '</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Time & Date</b></h5></div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().date + '</div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().startTime + ' to ' +doc.data().endTime+'</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Description</b></h5></div></div><div class="row"><div class="col s12 left-align">'+doc.data().description+'</div></div></div></div></div></div>';
           var name = doc.data().name;
           var category = doc.data().category;
           var city = user.photoURL;
@@ -26,6 +26,7 @@ function queryResults() {
           $(".buddy").on("swiperight", function() {
           $(".buddy").addClass('rotate-left').delay(700).fadeOut(1);
           $('.buddy').find('.status').remove();
+          var featured = document.getElementById("featuredBox").checked;
             db.collection("approvedEvents").doc(name).set({
                 name: name,
                 category: category,
@@ -37,9 +38,11 @@ function queryResults() {
                 location: location,
                 date: date,
                 geoPosition: geoPosition,
+                featured: featured,
               })
               .then(function(docRef) {
                 console.log("Document written");
+                console.log(featured.value);
                 db.collection("potentialEventsTraveler").doc(name).delete().then(function() {
                   console.log("Document successfully deleted!");
                 }).catch(function(error) {
@@ -87,19 +90,4 @@ function signOut() {
   });
 }
 
-
-//   <div class="row">
-//     <div class="col s12 m6">
-//       <div class="input-field col s12">
-//         <label for="timepicker"></label>
-//         <input type="text" class="timepicker" id="starttimePreview">
-//       </div>
-//     </div>
-//     <div class="col  s12 m6">
-//       <div class="input-field col s12">
-//         <label for="timepicker"></label>
-//         <input type="text" class="timepicker" id="endtimePreview">
-//       </div>
-//     </div>
-//   </div>
-// </div>
+// <form action="#"><p><label><input type="checkbox" /><span>Featured</span></label></p></form>
