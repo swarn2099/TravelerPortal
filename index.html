@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>marco/polo | Traveler Portal</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href=" css/materialize.min.css">
-  <link rel="stylesheet" href=" css/bulma.css">
-  <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/login.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/animate.css" media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/init.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <script>
     // Initialize Firebase
     var config = {
@@ -23,189 +27,103 @@
     };
     firebase.initializeApp(config);
   </script>
-  <!-- Compiled and minified JavaScript -->
-  <script type="text/javascript" src=" js/jquery-3.3.1.min.js"></script>
-  <script src=" js/materialize.js"></script>
-  <script src=" js/init.js"></script>
-  <script src=" js/locationpicker.js"></script>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link href=" img/1024.png" rel="shortcut icon" type="image/x-icon">
-  <style>
-    #rcorners2 {
-      border-radius: 15px;
-      box-shadow: 0px 4px 10px #888888;
-    }
-
-    #preview {
-      border-radius: 15px;
-      box-shadow: 0px 4px 10px #888888;
-    }
-
-    #previewCard {
-      border-radius: 15px;
-      box-shadow: 0px 4px 10px #888888;
-      height: 150px;
-      padding-top: 55px;
-    }
-
-    .top-left {
-      position: absolute;
-      top: 8px;
-      left: 16px;
-      color: white;
-    }
-
-    .top-left2 {
-      position: absolute;
-      top: 25px;
-      left: 16px;
-      color: white;
-    }
-
-    .bottom-left {
-      position: absolute;
-      bottom: 10px;
-      left: 16px;
-      color: white;
-    }
-
-    .bottom-right {
-      position: absolute;
-      bottom: 10px;
-      right: 16px;
-      color: white;
-    }
-  </style>
 </head>
-<nav>
-  <div class="nav-wrapper white ">
-    <a href="#" class="brand-logo center black-text"><span class="teal-text lighten-3">marco</span>/<span class="blue-text">polo</span><span class="thin"> Traveler Portal</span></a>
-  </div>
-</nav <body class="container">
-<br><br>
-<div class="container">
-  <div class="row">
-    <div class="col s12 m4"><br>
-      <div class="card white" id="rcorners2">
-        <div class="card-content black-text">
-          <span class="card-title"><b>Step 1</b></span>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="eventname" type="text">
-              <label for="eventname" class="theme"> Event Name </label>
+
+  <nav>
+    <div class="nav-wrapper color-page3 white-text">
+      <a href="#" class="brand-logo center"><span class="white-text text-lighten-2 heavy"><b>marco</b></span><span class="blue-text heavy">polo </span><span class="thin white-text hide-on-med-and-down	">Traveler</span></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="www/signin.html"><span class="white-text">Login</span></a></li>
+        <li><a href="www/create.html"><span class="white-text">Apply</span></a></li>
+      </ul>
+    </div>
+  </nav>
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="www/signin.html">Login</a></li>
+  <li><a href="www/create.html">Create Account</a></li>
+  <li><a href="collapsible.html">Contact Us</a></li>
+</ul>
+
+<body>
+  <div class="valign" style="width:100%;">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m12 ">
+          <div class="card animated slideInLeft" id="rcorners1">
+            <div class="card-content">
+              <h4 class="left"><b>Welcome to <span class="teal-text">Traveler</span>.</b></h4>
+              <h5 class="right">The <span class="teal-text text-lighten-2 heavy"><b>marco</b></span><span class="blue-text heavy">polo </span> Admin Portal</h5>
+              <br>
             </div>
-            <div class="input-field col s6">
-              <select id="category">
-          <option value="free">Free</option>
-          <option value="food">Food</option>
-          <option value="entertainment">Entertainment</option>
-          <option value="parties">Parties</option>
-          <option value="music">Music</option>
-          <option value="sports">Sports</option>
-          <option value="deal">Deal of the Day</option>
-        </select>
-              <label>Choose a Category</label>
-            </div>
-            <div class="input-field col s6">
-              <select id="featured">
-          <option value="no" class="selected">No</option>
-          <option value="yes">Yes</option>
-        </select>
-              <label>Featured?</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="description" type="text"></input>
-              <label for="description">Description</label>
+            <div class="row center">
+              <div class="input-field col s12">
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col s12 m4"><br>
-      <div class="card white" id="rcorners2">
-        <div class="card-content black-text">
-          <span class="card-title"><b>Step 2</b></span>
-          <div class="row">
-            <div class="col s12">
-              <div class="input-field col s12">
-                <label for="datepicker">Select Date</label>
-                <input type="text" class="datepicker" id="date">
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card animated fadeInLeft" id="rcorners1">
+            <div class="card-content">
+              <div class="row">
+                <h5 class="left"><b>Approve Events</b></h5>
+              </div>
+              <div class="row">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <br>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
               </div>
             </div>
-            <div class="col s6">
-              <div class="input-field col s12">
-                <label for="starttime">Select Start Time</label>
-                <input type="text" class="timepicker" id="starttime">
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card animated fadeInUp" id="rcorners1">
+            <div class="card-content">
+              <div class="row">
+                <h5 class="left"><b>Talk to your peers</b></h5>
+              </div>
+              <div class="row">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
               </div>
             </div>
-            <div class="col s6">
-              <div class="input-field col s12">
-                <label for="endtime">Select End Time</label>
-                <input type="text" class="timepicker" id="endtime">
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card animated fadeInRight" id="rcorners1">
+            <div class="card-content">
+              <div class="row">
+                <h5 class="left"><b>Real Data from Users</b></h5>
               </div>
-            </div>
-            <div class="input-field col s12">
-              <input id="tag" type="text">
-              <label for="tag" class="theme">Tag Line</label>
+              <div class="row">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              <br></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col s12 m4"><br>
-      <div class="card white" id="rcorners2">
-        <div class="card-content black-text">
-          <span class="card-title"><b>Step 3</b></span>
-          <div class="row">
-            <input type="text" id="us2-address" class="center-align " />
-            <div class="container">
-              <div id="us2" style="" class="center-align"></div>
-            </div>
-            <div class="input-field col s12">
-              <input id="imageLink" type="text">
-              <label for="imageLink" class="theme">Image Link</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="info" type="text">
-              <label for="info" class="theme">Additional Link</label><br>
+      <div class="row">
+        <div class="col s12 m12 ">
+          <div class="card animated slideInUp" id="rcorners1">
+            <div class="card-content">
+              <div class="row">
+                <h5 class="left"><b>Let the Party begin</b></h5>
+              </div>
+              <div class="row">
+                <div class="left col s12 m6">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="left col s12 m3 push-m1">
+                  <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d14a810136c7528ba19f04ff77b8130d&auto=format&fit=crop&w=800&q=60" class="hide-on-med-and-down" style="width: 400px; height: 300px;">
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div><br>
-  <div class="row">
-    <div class="col s12 m4">
-      <div class="card teal" id="rcorners2">
-        <div class="card-content white-text center-align">
-          <a class="waves-effect waves-light btn" onclick="getPreview()">Preview</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m4 center-align">
-      <div id="preview">
-        <div id="previewCard"><span class="grey-text center-align">Preview Goes Here</span></div>
-      </div>
-    </div>
-    <div class="col s12 m4">
-      <div class="card blue" id="rcorners2">
-        <div class="card-content white-text center-align">
-          <a class="waves-effect waves-light blue btn" id="submit" onclick="getForm()" href="#">Add Event</a>
         </div>
       </div>
     </div>
   </div>
-
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf69RlrrN0ChatQlN28uGPRFyUP1MrV88&libraries=places"></script>
-  <script src=' js/autocomplete.js'></script>
-  <script src=" js/locationpicker.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('.datepicker').datepicker();
-    });
-  </script>
-
 </body>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--Import materialize.css-->
+
+  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="../css/home.css" media="screen,projection" />
+
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+  <script src="../js/init.js"></script>
+  <script src="../js/manage.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+  <script>
+    // Initialize Firebase
+    firebase.initializeApp({
+      apiKey: "AIzaSyCvM4gKXyUW58BrDOnqU3bJBGnCNiexCzI",
+      authDomain: "marco-polo-c90db.firebaseapp.com",
+      projectId: "marco-polo-c90db",
+    });
+    const firestore = firebase.firestore();
+    const settings = { /* your settings... */
+      timestampsInSnapshots: true
+    };
+    firestore.settings(settings);
+    // Initialize Cloud Firestore through Firebase
+    var db = firebase.firestore();
+    var user = firebase.auth().currentUser;
+  </script>
+</head>
+<nav>
+  <div class="nav-wrapper color-page3 black-text">
+    <a href="home.html" class="brand-logo center"><span class="white-text text-lighten-2"><b>marco</b></span><span class="blue-text heavy">polo </span><span class="thin white-text hide-on-med-and-down">Traveler</span></a>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+    <ul class="right hide-on-med-and-down black-text">
+      <li>
+        <a class="dropdown-trigger black-text" href="#!" data-target="dropdown1" id="welcomeMessage"></li>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!" onclick="signOut()">Sign Out</a></li>
+      </ul>
+    </ul>
+  </div>
+</nav>
+<br><br>
+
+<body onload="queryResults()">
+  <div class="container center" id="container">
+    <div class="cards row"></div>
+  </div>
+</body>
+
+<script type="text/javascript" src="../js/materialize.min.js"></script>
+<script>
+</script>
+
+</html>
