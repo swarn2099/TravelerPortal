@@ -10,7 +10,7 @@ function queryResults() {
       db.collection("potentialEventsTraveler").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           console.log(doc.id, " => ", doc.data());
-          var option = '<div class="buddy" style="display: block;"><div class="col s12 m7 push-m2"><div class="card"><div class="card-image"><img class="reduceheight" src="' + doc.data().imageURL + '"><span class="card-title">' + doc.data().name + '</span></div><div class="card-content black-text"><div class="row"><div class="col s12"><h5 class="left-align"><b>Location</b></h5></div></div><div class="row"><div class="left-align" id="locationPreview">' + doc.data().location + '</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Time & Date</b></h5></div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().date + '</div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().startTime + ' to ' +doc.data().endTime+'</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Description</b></h5></div></div><div class="row"><div class="col s12 left-align">'+doc.data().description+'</div></div></div></div></div></div>';
+          var option = '<div class="buddy" style="display: block;"><div class="col s12 m7 push-m5"><div class="card"><div class="card-image"><img class="reduceheight" src="' + doc.data().imageURL + '"><span class="card-title">' + doc.data().name + '</span></div><div class="card-content black-text"><div class="row"><div class="col s12"><h5 class="left-align"><b>Location</b></h5></div></div><div class="row"><div class="left-align" id="locationPreview">' + doc.data().location + '</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Time & Date</b></h5></div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().date + '</div></div><div class="row"><div type="text" class="left" id="datePreview">' + doc.data().startTime + ' to ' +doc.data().endTime+'</div></div><div class="row"><div class="col s12"><h5 class="left-align"><b>Description</b></h5></div></div><div class="row"><div class="col s12 left-align">'+doc.data().description+'</div></div></div></div></div></div>';
           var name = doc.data().name;
           var category = doc.data().category;
           var city = user.photoURL;
@@ -77,7 +77,15 @@ function queryResults() {
     }
   });
 }
+function signOut() {
+  firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+    window.location.href = "../index.html";
 
+  }, function(error) {
+    console.error('Sign Out Error', error);
+  });
+}
 
 
 //   <div class="row">

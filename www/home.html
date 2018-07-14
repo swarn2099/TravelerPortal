@@ -5,7 +5,8 @@
   <!--Import Google Icon Font-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <link rel="icon" href="../img/boat.png">
+<title>Home | Traveler Portal</title>
   <!--Import materialize.css-->
 
   <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
@@ -38,10 +39,15 @@
     var db = firebase.firestore();
     var user = firebase.auth().currentUser;
   </script>
+  <style>
+  .centered {
+    left: 75%;
+}
+  </style>
 </head>
 <nav>
   <div class="nav-wrapper color-page3 black-text">
-    <a href="home.html" class="brand-logo center"><span class="white-text text-lighten-2"><b>marco</b></span><span class="blue-text heavy">polo </span><span class="thin white-text hide-on-med-and-down">Traveler</span></a>
+    <a href="home.html" class="brand-logo center"><span class="white-text text-lighten-2"><b>marco</b></span><span class="blue-text heavy">polo </span><span class="thin white-text hide-on-med-and-down">Traveler Portal</span></a>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
     <ul class="right hide-on-med-and-down black-text">
       <li>
@@ -52,11 +58,15 @@
     </ul>
   </div>
 </nav>
+<ul id="slide-out" class="sidenav sidenav-fixed center"><br>
+  <li><a href="home.html"><i class="material-icons small">home</i></a></li>
+  <li><a href="#!" onclick="signOut()"><i class="material-icons small">hotel</i></a></li>
+</ul>
 <br><br>
 
 <body onload="queryResults()">
   <div class="container center" id="container">
-    <div class="cards row"></div>
+    <div class="cards row centered"></div>
   </div>
 </body>
 
